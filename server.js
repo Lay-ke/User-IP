@@ -8,6 +8,6 @@ app.listen( 5001, ()=> {
 
 app.get('/', (req, res) => {
     console.log(req.socket.remoteAddress)
-    res.json({Message: 'yeah'})
+    res.send({Message: 'yeah'})
     console.log('we inside!') 
 })
