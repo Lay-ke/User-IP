@@ -4,9 +4,9 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    console.log(req.socket.remoteAddress)
-    res.json({Message: 'yeah', Your_IP: req.ip})
-    console.log('we inside!') 
+    const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
+    console.log('User IP:', ip);
+    res.json({Message: 'yeah', Your_IP: ip})
 })
 
 app.listen( 5000, ()=> {
