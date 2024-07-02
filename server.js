@@ -10,7 +10,7 @@ const openWeatherMapApiKey = process.env.OPENWEATHERKEY;
 
 const PORT = process.env.PORT;
 
-app.get('/api/home', async (req, res) => {
+app.get('/api/hello', async (req, res) => {
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null);
     console.log('User IP:', ip);
     const {visitor_name} = req.query;
